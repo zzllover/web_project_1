@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>消除浮动-之一</title>
+
+  <style type="text/css"> 
+
+    /*
+      讨厌的浮动：当元素设置float浮动后，该元素就会脱离文档流并向左/向右浮动，
+      直到碰到父元素或者另一个浮动元素，浮动元素会造成父元素高度塌陷，所以当我
+      们设置float后，需进行相应的清除浮动操作。
+    */
+    .div1{background:#2dc435d2;border:1px solid rgb(189, 104, 104);/*height: 300px*/}
+    /*父级元素未设置高度*/
+
+    .div2{background:#800080;border:1px solid red;height:100px;margin-top:10px;}  
+    /*父级的兄弟元素为块级元素*/
+
+    /*子级元素中使用了 float属性，从而造成父级元素坍塌*/
+    .left{float:left;width:20%;height:200px;background:#DDD}
+    .right{float:left;width:30%;height:80px;margin-left:100px;background:#DDD}
+
+       /*清除浮动代码,简单的解决方案一*/
+   /*#800080.clearfloat:after{display:block;clear:both;content:"";visibility:hidden;height:0}
+   .clearfloat{zoom:1}*/
+
+
+
+  </style>
+</head>
+<body>
+
+    <div class="div1 clearfloat"> 
+        <div class="left">Left</div> 
+        <div class="right">Right</div> 
+    </div>
+    <div class="div2">
+       div2
+    </div>
+
+</body>
+</html>
