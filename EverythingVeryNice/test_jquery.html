@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+  <title>Document</title>
+</head>
+<body>
+
+    <div id="div1" style="height:100px;width:300px;padding:10px;margin:3px;border:1px solid blue;background-color:lightblue;">
+
+    </div>
+    <br>
+    <button id="button_width">显示 div 的尺寸</button>
+    <p>width() - 返回元素的宽度。</p>
+    <p>height() - 返回元素的高度。</p>
+
+    <button id="button_document">显示文档和窗口的尺寸</button>
+    <button id="button_innerWidth">显示 div 的尺寸</button>
+  <script>
+      $(document).ready(function(){
+        $("#button_document").click(function(){
+          var txt="";
+          txt+="Document width/height: " + $(document).width();
+          txt+="x" + $(document).height() + "\n";
+          txt+="Window width/height: " + $(window).width();
+          txt+="x" + $(window).height();
+          alert(txt);
+        });
+        $("#button_width").click(function(){
+          var txt="";
+          txt+="Width of div: " + $("#div1").width() + "</br>";
+          txt+="Height of div: " + $("#div1").height();
+          $("#div1").html(txt);
+        });
+
+
+        $("#button_innerWidth").click(function(){
+          var txt="";
+          txt+="Width of div: " + $("#div1").width() + "</br>";
+          txt+="Height of div: " + $("#div1").height() + "</br>";
+          txt+="Inner width of div: " + $("#div1").innerWidth() + "</br>";
+          txt+="Inner height of div: " + $("#div1").innerHeight();
+          $("#div1").html(txt);
+        });
+
+      });
+
+  </script>
+</body>
+</html>

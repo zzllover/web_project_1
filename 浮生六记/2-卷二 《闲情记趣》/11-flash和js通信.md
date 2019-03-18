@@ -1,0 +1,6 @@
+
+# Flash
+
+Flash提供了ExternalInterface接口与JavaScript通信，
+ExternalInterface有两个方法，call和addCallback，
+call的作用是让Flash调用js里的方法，addCallback是用来注册flash函数让js调用。
