@@ -1,0 +1,23 @@
+*{
+  margin: 0px;
+  padding: 0px
+}
+
+#div1{
+  width: 900px;
+  height: auto;
+}
+
+li{
+  list-style-type: none;
+}
+
+#div1 ul{
+  width: 300px;
+  height: auto;
+  float: left;
+}
+
+img{
+  width: 300px
+}

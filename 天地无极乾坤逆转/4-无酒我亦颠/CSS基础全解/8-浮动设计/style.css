@@ -1,0 +1,44 @@
+/**
+ 1.float属性值：
+    left
+    right
+    none
+    inherit
+ 2.clear属性：
+    去掉浮动属性
+      left right:去掉左右
+      both：去掉两侧
+      inherit：去掉继承的浮动
+
+*/
+
+#w1{
+  width: 100px;
+  height: 100px;
+  background-color: blue;
+  float: left;
+}
+
+#w2{
+  width: 150px;
+  height: 100px;
+  background-color:yellow;
+  float: left;
+}
+
+#w3{
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  float: left;
+}
+
+#p1{
+  width: 300px;
+  height: 600px;
+  background-color: aliceblue;
+}
+
+#te{
+  clear: both; /* 去掉浮动属性*/
+}

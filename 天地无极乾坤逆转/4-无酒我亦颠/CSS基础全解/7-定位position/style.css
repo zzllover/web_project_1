@@ -1,0 +1,37 @@
+/*
+css position属性:
+    relative
+    absolute
+    fixed:滚动界面依旧固定
+    static:设置为静态后，偏移量不对元素起作用
+*/
+
+#position1{
+  width: 100px;
+  height: 100px;
+  background-color: aqua;
+  position: absolute;
+  left: 10px;
+  top:10px;
+  z-index: 1;
+}
+
+#position2{
+  width: 100px;
+  height: 100px;
+  background-color: rgb(43, 255, 0);
+  position: absolute;
+  left: 20px;
+  top:20px;/*相对于top的偏移量 = 上面元素的高之和 + top值*/
+  z-index: 2;
+}
+
+#position3{
+  width: 100px;
+  height: 100px;
+  background-color: rgb(255, 0, 34);
+  position: absolute;
+  left: 30px;
+  top:30px;/*相对于top的偏移量 = 上面元素的高之和 + top值*/
+  z-index: 3;
+}

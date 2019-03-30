@@ -1,0 +1,4 @@
+ul li{
+  list-style-type: circle;
+  list-style-image: url(favicon.ico)
+} 

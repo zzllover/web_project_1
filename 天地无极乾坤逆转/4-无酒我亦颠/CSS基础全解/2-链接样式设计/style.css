@@ -1,0 +1,21 @@
+/*
+a标签的四种状态
+a:link 普通未经过访问的
+a:visited 用户点击过的
+a:hover 鼠标悬停
+a:active 链接被点击的时候
+*/
+
+a:link{
+  color: chartreuse;
+  text-decoration: none
+}
+a:visited{
+  color: rgb(47, 0, 255)
+}
+a:hover{
+  color: rgb(255, 123, 0)
+}
+a:active{
+  color: rgb(255, 123, 0)
+}

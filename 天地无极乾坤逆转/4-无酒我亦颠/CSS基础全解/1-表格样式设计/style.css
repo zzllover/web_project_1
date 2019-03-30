@@ -1,0 +1,24 @@
+/*#tb,tr,th,td{
+  border: 1px solid blue
+}*/
+
+#tb{/*设置表格整体样式*/
+  width: 400px;
+  border-collapse: collapse
+  /*折叠边框，因为给每个内部单元设置了border，故边框会重复，使用该属性自动折叠*/
+}
+
+#tb td,#td th{/*内部元素样式*/
+  border: 1px solid skyblue;
+  padding: 5px
+}
+
+#tb th{/*专门设置一下表头样式*/
+  color: black;
+  text-align: left;/*内容位置*/
+  background-color: aquamarine
+}
+
+#tb tr.a td{/*设置隔行样式区分*/
+  background-color: azure
+}

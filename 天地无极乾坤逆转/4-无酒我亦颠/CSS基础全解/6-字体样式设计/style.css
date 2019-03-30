@@ -1,0 +1,15 @@
+p{
+  font-family: 'Courier New', Courier, monospace
+}
+
+/*
+css3之后可以引入自己的字体
+*/
+@font-face{
+  font-family: myfont;/*引入自己的字体，并命名*/
+  src:url()
+}
+
+div{
+  font-family: myfont;/*使用*/
+}
