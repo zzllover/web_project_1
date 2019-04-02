@@ -1,0 +1,44 @@
+/*
+2D转换方式：
+  translate()
+  rotate()
+  scale()
+  skew()
+  matrix()
+3D转换方式：
+  rotateX()
+  rotateY() 
+*/
+
+div{
+width: 100px;
+height: 100px;
+background-color: #FF00FF
+}
+/* #div2{ */
+/* transform: translate(100px,200px); 平移*/
+/* -webkit-transform: translate(100px,200px); 谷歌和苹果，横纵平移 */
+/* -moz-tranform:translate(100px,200px);火狐 */
+/* } */
+
+/* #div2{
+  transform: rotate(200deg);
+  -webkit-transform: rotate(200deg);旋转
+} */
+
+/* #div2{
+  transform: scale(1,2);
+  -webkit-transform:  scale(1,2);宽不变，高变2倍
+} */
+
+/* #div2{
+  transform: skew(20deg,20deg);
+  -webkit-transform:  skew(20deg,20deg);倾斜
+} */
+
+
+/* #div2{
+  transform: rotateX(80deg);
+  -webkit-transform:  rotateX(80deg);沿着x轴转动
+} */
+

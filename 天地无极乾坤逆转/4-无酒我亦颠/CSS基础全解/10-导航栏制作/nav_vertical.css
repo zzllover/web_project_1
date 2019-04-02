@@ -1,0 +1,19 @@
+
+ul{
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+a:link,a:visited{
+  text-decoration: none;
+  display: block;
+  background-color: bisque;
+  color: aqua;
+  text-align: center;
+  width: 100px
+}
+
+a:hover,a:active{
+  background-color: brown;
+}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+      span:first-child{color: red;}
+      p:first-child{color: blue;} /*p元素的父元素的第一个子元素是div而不是p元素，因此该样式不起作用*/
+      i:first-child{color: orange;}
+  </style>
+</head>
+<body>
+
+
+        
+        <div class="demo">
+          
+        <div>.demo的第一个子元素是div</div>
+
+        <!--第一个span元素是它的父级P元素的第一个span，颜色变红色-->
+        <p><span>第一个span</span>第一个段落P<span>第二个span</span></p>
+
+        <!--第一个i元素是它的父级a元素的第一个i，颜色变橙色-->
+        <p>一个链接<i>第一个i元素</i></p>
+
+        <!--第二个i元素是它的父级a元素的第一个i，颜色变橙色-->
+        <p>一个链接<i>第二个i元素</i></p>
+
+        <p>一个链接</p>
+        </div>
+  
+</body>
+</html>

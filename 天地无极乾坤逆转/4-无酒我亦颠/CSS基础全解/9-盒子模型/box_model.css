@@ -1,0 +1,21 @@
+body{
+  margin: 0px
+}
+
+.contanier{
+  margin: 50px
+  /*
+  注意外边距合并的概念 ，两个具有外边距的元素相邻，并非 mg相加，而是 max{mg1,mg2,...}
+  */
+}
+.bd{
+  border-style: dotted
+}
+.pd{
+  padding: 50px
+}
+.content{
+  background-color: aqua
+}
+
+

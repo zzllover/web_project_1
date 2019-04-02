@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+    <div class="a">hello</div> 
+    <!--由于仅存在一个dom元素，它的事件由自身触发，处于目标阶段，所以绑定事件与绑定顺序有关 -->
+    <script>
+        let a = document.querySelector('.a');
+        a.addEventListener('click', ()=>{
+          console.log(2);
+        },true);
+        a.addEventListener('click', ()=>{
+            console.log(1);
+        });
+
+    </script>
+</body>
+</html>
