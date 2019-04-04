@@ -23,12 +23,9 @@ let queue = [];
 queue.unshift(1)//入队操作，unshift方法可向数组的开头添加一个或更多元素，并返回新的长度
                 //以此模拟入队操作
 console.log(queue);
-
 queue.unshift(2)
 console.log(queue);
-
 queue.unshift(3)
 console.log(queue);
-
 queue.pop()
 console.log(queue);
