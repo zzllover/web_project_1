@@ -2,7 +2,6 @@
 //所以不是所有对象都是Object实例，但是Object的实例一定是对象
 
 function A() {
-  
 }
 
 let a = new A()
