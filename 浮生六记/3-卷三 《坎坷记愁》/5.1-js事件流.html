@@ -8,6 +8,13 @@
 </head>
 <body>
     <div class="a">hello</div> 
+
+    <ul id="q1">
+      <li>111</li>
+      <li>222</li>
+      <li>333</li>
+      <li>444</li>
+    </ul>
     <!--由于仅存在一个dom元素，它的事件由自身触发，处于目标阶段，所以绑定事件与绑定顺序有关 -->
     <script>
         let a = document.querySelector('.a');
@@ -17,6 +24,12 @@
         a.addEventListener('click', ()=>{
             console.log(1);
         });
+        var q1 = document.getElementById('q1')
+
+        q1.addEventListener('click',function(e){
+          console.log(e.target.innerHTML.toString().substr(2,1))
+        })
+
 
     </script>
 </body>

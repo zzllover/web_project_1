@@ -3,7 +3,11 @@
 
 ## 1、什么是WebSocket
 
-WebSocket 是一种自然的全双工、双向、单套接字连接。使用WebSocket，你的HTTP 请求变成打开WebSocket 连接（WebSocket 或者WebSocket over TLS（TransportLayer Security，传输层安全性，原称“SSL”））的单一请求，并且重用从客户端到服务器以及服务器到客户端的同一连接。WebSocket 减少了延迟，因为一旦建立起WebSocket 连接，服务器可以在消息可用时发送它们。例如，和轮询不同，WebSocket只发出一个请求。服务器不需要等待来自客户端的请求。相似地，客户端可以在任何时候向服务器发送消息。相比轮询不管是否有可用消息，每隔一段时间都发送一个请求，单一请求大大减少了延迟。
+WebSocket 是一种
+自然的全双工、双向、单套接字连接。
+使用WebSocket，你的HTTP 请求变成打开WebSocket 连接（WebSocket 或者WebSocket over TLS（TransportLayer Security，传输层安全性，原称“SSL”））的单一请求，并且重用从客户端到服务器以及服务器到客户端的同一连接。WebSocket 减少了延迟，因为一旦建立起WebSocket 连接，服务器可以在消息可用时发送它们。
+例如，和轮询不同，WebSocket只发出一个请求。服务器不需要等待来自客户端的请求。相似地，客户端可以在任何时候
+向服务器发送消息。相比轮询不管是否有可用消息，每隔一段时间都发送一个请求，单一请求大大减少了延迟。
 
 ## 2、WebSocket API
 
