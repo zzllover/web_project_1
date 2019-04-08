@@ -52,3 +52,9 @@ render函数选项 > template选项 > outer HTML.
 6.beforeDestroy和destroyed钩子函数间的生命周期
 beforeDestroy钩子函数在实例销毁之前调用。在这一步，实例仍然完全可用。
 destroyed钩子函数在Vue 实例销毁后调用。调用后，Vue 实例指示的所有东西都会解绑定，所有的事件监听器会被移除，所有的子实例也会被销毁。
+
+小结：
+beforecreated：el 和 data 并未初始化
+created:完成了 data 数据的初始化，el没有
+beforeMount：完成了 el 和 data 初始化/*现el还是 {{message}}，这里就是应用的 Virtual DOM（虚拟Dom）技术，先把坑占住了*/
+mounted ：完成挂载【数据视图挂载】
