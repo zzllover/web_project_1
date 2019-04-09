@@ -19,8 +19,38 @@ var minDominoRotations = function(A, B) {
     
   
   let len = A.length;
-  //要么使得 A全一样
-  //要么使得 B全一样
+  let min = len + 1;
+  for (let i = 1; i <7; i++) {//暴力第一轮，找出使得A全一样的旋转次数
+    let change = 0;
+    let j;
+    for (j = 0; j < len; j++) {
+      if (A[j] != i && B[j] != i) break;
+      else if(A[j]!=i){
+        change++;
+      }
+    }
+    if (j==len) { //顺利交换玩一轮
+      min = Math.min(min,change)
+    }  
+  }
+  for (let i = 1; i <7; i++) { //暴力第二轮，找出使得B全一样的旋转次数
+    let change = 0;
+    let j;
+    for (j = 0; j < len; j++) {
+      if (A[j] != i && B[j] != i) break;
+      else if(B[j]!=i){
+        change++;
+      }
+    }
+    if (j==len) { //顺利交换玩一轮
+      min = Math.min(min,change)
+    }  
+  }
+  if (min == len + 1) {
+    return -1;
+  }
 
-
+  return min;
 };
+
+console.log(minDominoRotations( [2,1,2,4,2,2],[5,2,6,2,3,2]))
