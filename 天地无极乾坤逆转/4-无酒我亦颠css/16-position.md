@@ -9,6 +9,7 @@ absolute
 fixed
 生成绝对定位的元素，相对于浏览器窗口进行定位。
 
+absolute
 元素的位置通过 "left", "top", "right" 以及 "bottom" 属性进行规定。
 
 relative

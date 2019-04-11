@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <div id="nmsl">aaa</div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script type="text/javascript">
+    const vm = new Vue({
+      el:'#nmsl',
+      data:{
+        name:'zhuzhu'
+      }
+    })
+    // vue数据代理：一个对象代理对另一个对象中属性值的操作
+    // 使用 vm 代理 data 里面的属性数据
+    console.log(vm.name,vm) //vm.name 实际上是 vm 调用 name 的 get 方法去取 data 里的值
+    vm.name = "mingmign"; //这里的赋值操作实际上是调用 name 的 set 方法去设置 data中的值
+    console.log(vm._data.name)//mingmign
+
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>准备剖析MVVM框架</title>
+</head>
+<body>
+
+  <div id="div_"></div>
+
+  <ul id = "ul1">
+    <li>1</li>
+    <li>2</li>
+    <li>1</li>
+    <li>2</li>
+  </ul>
+
+
+
+
+
+  <script type="text/javascript">
+    //1. [].slice.call(lis):将伪数组转换为真数组
+    const lis = document.getElementsByTagName('li');//伪数组
+    console.log(lis instanceof Array,lis[0].innerHTML,lis.forEach) 
+    //false，1,undefined 即它并不是数组，只是具有下表属性的对象，没有forEach方法
+
+    //ES5语法，对象转数组
+    //详见：https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/slice
+    const lis2 = Array.prototype.slice.call(lis);
+    console.log(lis2)
+    //ES6语法，对象转数组
+    //let arr = Array.from(lis)
+    //console.log(arr)
+
+
+
+    //2.0 node.nodeTypes //得到节点的类型 document element attr text
+    const elementNode = document.getElementById('div_');//元素节点 ,nodeTye为1
+    const attrNode = elementNode.getAttributeNode('id');//属性节点，nodeTypeT为2
+    const textNode = elementNode.firstChild             ////文本节点，nodeTypeT为3
+
+
+    //3.0 Object.defineProperty(obj,prop,descrip) //给对象添加属性（指定描述符）
+    const obj = {
+      firstName:'A',
+      lastName:'B'
+    }
+
+    /**
+      ES5语法 不支持IE8
+      Object.defineProperty(obj, prop, descriptor) //Vue数据绑定的核心
+
+      obj:要在其上定义属性的对象。
+      prop:要定义或修改的属性的名称。
+      descriptor:将被定义或修改的属性描述符。{}
+        1.数据描述符
+          configurable：能否重新定义
+          enumerable：for in时能否被访问到，默认为false
+          value：初始值
+          writable：能否修改
+        2.存取描述符 (访问描述符)同时具有以下可选键值:
+          get //回调函数，根据其他相关属性值，动态计算得到当前属性值
+          set //回调函数，监视当前属性值的变化，更新其他相关操作
+              //也就是说，当我试图 更新fullName，会唤起 他的set方法
+    */
+
+    Object.defineProperty(obj,'fullName',{
+      get(){ //回调函数，根据其他相关属性值，动态计算得到当前属性值
+        return this.firstName + '-' + this.lastName;
+      },
+      set(value){ //回调函数，监视当前属性值的变化，更新其他相关操作
+                  //也就是说，当我试图 更新fullName，会唤起 他的set方法
+        const names = value.split('-');
+        this.firstName = names[0];
+        this.lastName = names[1];
+      }
+    })
+
+    //4. Object.keys(obj) // 得到对象自身 可以枚举 属性 组成的数组
+
+    //5. obj.hasOwnProperty(prop) //判断prop是否是 obj对象自身的属性（只查自身，不往上查原型链）
+
+    //6. DocumentFragment: 文档碎片，高效批量更新多个节点
+    // document :对应显示的页面 包含多个 element ，一旦更新document内部的某个元素 ，界面整个更新
+    // documentFragment : 放在内存中保存n个element的容器对象（不与界面关联），若更新fragment中的内容,界面不会变化
+    // 减少更新的界面的次数
+    // DocumentFragment   Node：节点
+
+
+    const ul = document.getElementById('ul1');
+    //1.创建fragment
+    const fragment = document.createDocumentFragment();
+
+    //2.取出所有ul的子节点保存到 fragment
+    let child;
+    while(child=ul.firstChild){//先赋值，再判断
+      fragment.appendChild(child); //（一个节点只能有一个父亲节点） //?
+      // 1. 首先将 child从 ul中移除
+      // 2. 再将 child 加入fragment 的子节点中
+    }
+
+    //3.更新fragment中所有的li
+    //fragment.children 得到所有的子标签节点
+    //fragment.childNodes 得到所有的节点，包括 文本节点 和 标签节点
+    Array.prototype.slice.call(fragment.childNodes).forEach((node)=>{
+      if(node.nodeType === 1){
+        node.textContent = "NSML";
+      }
+    })
+
+
+    //4.将fragment插入ul
+    ul.appendChild(fragment);
+  </script>
+  
+</body>
+</html>

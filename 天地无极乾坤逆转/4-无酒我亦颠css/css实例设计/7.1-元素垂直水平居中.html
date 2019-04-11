@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    /*
+      position 元素已知宽度 
+      父元素设置为：position: relative; 
+      子元素设置为：position: absolute; 
+      距上50%，据左50%，然后减去元素自身宽度的距离就可以实现
+     */
+    .box{
+      background-color: #19b660;
+      width:800px;
+      height: 300px;
+      position: relative;
+      margin: 0 auto;
+    }
+    .content{
+      background-color: #861148;
+      width: 200px;
+      height: 200px;
+      position: absolute;
+      left:50%; /*相对父亲的宽度的一半偏移*/
+      top:50%;  /*相对父亲的高度的一半偏移*/
+      margin:-100px 0 0 -100px;  /*外边距 上左偏移自己高宽的一半，这非要已知自己的宽高*/
+    }
+  </style>
+</head>
+<body>
+
+    <div class="box">
+        <div class="content">
+        </div>
+    </div>
+  
+</body>
+</html>
