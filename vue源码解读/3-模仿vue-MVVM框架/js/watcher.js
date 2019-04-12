@@ -1,8 +1,8 @@
-function Watcher(vm, expOrFn, cb) {
-    this.cb = cb;
+function Watcher(vm, expOrFn, cb) { //订阅者
+    this.cb = cb; //回调，当需要更新界面时回调，更新界面的回调
     this.vm = vm;
-    this.expOrFn = expOrFn;
-    this.depIds = {};
+    this.expOrFn = expOrFn; //对应的表达式 name  wife.name
+    this.depIds = {};       //相关的n个dep的容器对象
 
     if (typeof expOrFn === 'function') {
         this.getter = expOrFn;
@@ -10,7 +10,7 @@ function Watcher(vm, expOrFn, cb) {
         this.getter = this.parseGetter(expOrFn.trim());
     }
 
-    this.value = this.get();
+    this.value = this.get(); //当前表达式对应的value初始值
 }
 
 Watcher.prototype = {
@@ -22,6 +22,7 @@ Watcher.prototype = {
         var oldVal = this.value;
         if (value !== oldVal) {
             this.value = value;
+            //调用回调函数
             this.cb.call(this.vm, value, oldVal);
         }
     },
@@ -40,14 +41,27 @@ Watcher.prototype = {
         // 这一步是在 this.get() --> this.getVMVal() 里面完成，forEach时会从父级开始取值，间接调用了它的getter
         // 触发了addDep(), 在整个forEach过程，当前wacher都会加入到每个父级过程属性的dep
         // 例如：当前watcher的是'child.child.name', 那么child, child.child, child.child.name这三个属性的dep都会加入当前watcher
+
+
+        //判断 dep 与watcher关系是否已经建立
         if (!this.depIds.hasOwnProperty(dep.id)) {
+            //将watcher添加到dep   //用于更新阶段
             dep.addSub(this);
+            //将dep添加到watcher中 //用于防止重复建立关系 this.depIds = {}; 使用对象的原因对应  hasOwnProperty
             this.depIds[dep.id] = dep;
         }
     },
-    get: function() {
+
+
+    //得到表达式对应的值
+    get: function () {
+        //给dep指定当前的watcher
         Dep.target = this;
+
+        //获取表达式的值，内部调用get建立dep与watcher的关系
         var value = this.getter.call(this.vm, this.vm);
+
+        //去除dep中指定的当前watcher
         Dep.target = null;
         return value;
     },

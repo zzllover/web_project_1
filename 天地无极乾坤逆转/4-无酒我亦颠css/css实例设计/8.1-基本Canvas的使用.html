@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <title></title>
+</head>
+<body>
+    <canvas id="canvas" width="450" height="450"></canvas><!-- 设置出canvas的属性width,height的数值 -->
+    <script type="text/javascript">
+        var canvas = document.getElementById('canvas');// 获取到元素对象
+        var ctx = canvas.getContext('2d');//根据元素对象获取到渲染上下文和它的绘画功能(2d)
+        ctx.rect(0,0,200,200);　　// 绘制一个起点是0，0，长宽都是200的矩形
+        ctx.stroke();　　// 绘制线条，边框
+    </script>
+</body>
+</html>

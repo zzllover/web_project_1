@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    #myCanvas {
+      border: 1px solid #d3d3d3;
+    }
+  </style>
+</head>
+
+<body>
+  <canvas id="myCanvas" width=800 height=600>
+    Your browser does not support the HTML5 canvas tag.
+  </canvas>
+</body>
+
+</html>
+<script>
+  var canv = document.getElementById("myCanvas");
+  var cell_width = cell_height = 20;
+  var edge_blank = cell_width;
+  var clear_width = cell_width * 2 - 2;
+  var clear_height = cell_height * 2 - 2;
+  // 最大逻辑坐标, 坐标起始于 0, 终于 xe, ye
+  var xe = Math.floor(canv.width / cell_width - 2);
+  var ye = Math.floor(canv.height / cell_height - 2);
+  var ctx = canv.getContext("2d");
+  ctx.beginPath();
+  var x_end = edge_blank + (xe - 1) * cell_width;
+  y_end = edge_blank + (ye - 1) * cell_height;
+  for (var y = edge_blank + cell_height; y <= y_end; y += 2 * cell_height) {
+    ctx.moveTo(edge_blank + cell_width, y);
+    ctx.lineTo(x_end, y);
+  }
+  for (var x = edge_blank + cell_width; x <= x_end; x += 2 * cell_width) {
+    ctx.moveTo(x, edge_blank + cell_height);
+    ctx.lineTo(x, y_end);
+  }
+  ctx.strokeStyle = "black";
+  ctx.stroke();
+  var maze = Array(xe + 1);
+  for (var i = 0; i <= xe; i++) {
+    maze[i] = Array(ye + 1);
+    for (var j = 0; j <= ye; j++) {
+      maze[i][j] = { road: false, gen: false };
+    }
+  }
+  var dirs = [], cells = [];
+  var x = y = 2;
+  var item_last, dir, visit, randS, randE, dc;
+  while (true) {
+    if (maze[x][y].gen) {
+      if (dirs[dirs.length - 1] == 0xf) {
+        dirs.pop();
+        cells.pop();
+        if (cells.length == 0) {
+          // alert('Maze generation completed');
+          break;
+        }
+        item_last = cells[cells.length - 1];
+        x = item_last.x;
+        y = item_last.y;
+      } else {
+        item_last = cells[cells.length - 1];
+        x = item_last.x;
+        y = item_last.y;
+        dir = dirs[dirs.length - 1];
+        visit = 1;
+        randS = Math.round(Math.random() * 3);
+        randE = randS | 4;
+        for (var i = randS; i < randE; i++) {
+          if (visit != 0) {
+            dc = 1 << (i & 3);
+            visit = dir & dc;
+            dir |= dc;
+            if (visit == 0) {
+              switch (dc) {
+                case 1:
+                  y -= 2;
+                  break;
+                case 2:
+                  x -= 2;
+                  break;
+                case 4:
+                  x += 2;
+                  break;
+                case 8:
+                  y += 2;
+                  break;
+              }
+              dirs[dirs.length - 1] = dir; // dirs.pop(); dirs.push(dir);
+            }
+          }
+        }
+      }
+    } else { // 可通行点
+      if (!(0 < x && x < xe && 0 < y && y < ye)) {
+        item_last = cells[cells.length - 1];
+        x = item_last.x;
+        y = item_last.y;
+      } else {
+        cells.push({ x: x, y: y });
+        maze[x][y].gen = true;
+        for (var i = 0; i < 2; i++) {
+          maze[x][y].road = true;
+          ctx.clearRect(edge_blank + (x - 1) * cell_width + 1, edge_blank + (y - 1) * cell_height + 1, clear_width, clear_height);
+          switch (dc) {
+            case 1:
+              y += 1;
+              break;
+            case 2:
+              x += 1;
+              break;
+            case 4:
+              x -= 1;
+              break;
+            case 8:
+              y -= 1;
+              break;
+          }
+        }
+        switch (dc) {
+          case 1:
+            y -= 2;
+            break;
+          case 2:
+            x -= 2;
+            break;
+          case 4:
+            x += 2;
+            break;
+          case 8:
+            y += 2;
+            break;
+        }
+        dc = 1 << Math.round(Math.random() * 3);
+        dirs.push(dc);
+        switch (dc) {
+          case 1:
+            y -= 2;
+            break;
+          case 2:
+            x -= 2;
+            break;
+          case 4:
+            x += 2;
+            break;
+          case 8:
+            y += 2;
+            break;
+        }
+      }
+    }
+  }
+</script>

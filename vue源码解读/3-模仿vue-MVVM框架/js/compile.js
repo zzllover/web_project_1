@@ -100,17 +100,20 @@ var compileUtil = {
         this.bind(node, vm, exp, 'html');
     },
 
-    model: function(node, vm, exp) {
+    model: function (node, vm, exp) { //v-model数据双向绑定
+        //初始化显示
         this.bind(node, vm, exp, 'model');
 
         var me = this,
+            //得到表达式的值 name 或者 wife.name
             val = this._getVMVal(vm, exp);
-        node.addEventListener('input', function(e) {
-            var newValue = e.target.value;
+        node.addEventListener('input', function(e) {//绑定输入的监听事件
+            var newValue = e.target.value;//获取输入框最新的值
             if (val === newValue) {
                 return;
             }
 
+            //将最新的值value保存给表达式所对应的属性
             me._setVMVal(vm, exp, newValue);
             val = newValue;
         });
@@ -122,11 +125,12 @@ var compileUtil = {
 
     bind: function(node, vm, exp, dir) {
         var updaterFn = updater[dir + 'Updater'];
-
+        // 一般指令 大括号表达式 的初始显示
         updaterFn && updaterFn(node, this._getVMVal(vm, exp));
 
-        new Watcher(vm, exp, function(value, oldValue) {
-            updaterFn && updaterFn(node, value, oldValue);
+        // 一般指令 大括号表达式 的监视，为表达式创建一个对应的watcher
+        new Watcher(vm, exp, function(value, oldValue) {   //监视器，加入回调函数  exp表达式对应的属性发生变化的时候
+            updaterFn && updaterFn(node, value, oldValue); //什么时候回调 做什么 this指向
         });
     },
 

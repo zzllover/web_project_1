@@ -11,9 +11,9 @@ function MVVM(options) {
 
     this._initComputed();
 
-    observe(data, this);
+    observe(data, this); 
 
-    this.$compile = new Compile(options.el || document.body, this)
+    this.$compile = new Compile(options.el || document.body, this)//创建编译对象
 }
 
 MVVM.prototype = { //原型链上的定义
