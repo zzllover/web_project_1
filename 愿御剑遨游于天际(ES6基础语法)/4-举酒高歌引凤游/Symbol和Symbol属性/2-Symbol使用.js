@@ -7,4 +7,4 @@ let person = {
 }
 
 console.log(person[uid])
-//console.log(person[Symbol(uuid)])
+//console.log(person[Symbol('uuid')])

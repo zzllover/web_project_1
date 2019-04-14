@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+ 
+  </style>
+</head>
+
+<body>
+  <div id="b1">slflsdkfsdjl</div>
+  <div id="b2"><img src="./vue生命周期.png" /></div>
+
+  <script>
+
+  
+//let line = readline();
+let line = '3,11';
+let nums = line.split(',').map(Number);
+
+function compute(a, b, count) {
+  if (a==b || count == 100) {
+    return count;
+  }
+  let r1 = compute(a + 1, b, count + 1);
+  let r2 = compute(a - 1, b, count + 1);
+  let r3 = compute(a * 2, b, count + 1);
+  return Math.max(r1, r2, r3);
+  
+}
+
+function solve(nums) {
+  //
+  let a = nums[0];
+  let b = nums[1];
+  let r1 = compute(a + 1, b, 1);
+  let r2 = compute(a - 1, b, 1);
+  let r3 = compute(a * 2, b, 1);
+
+  //let res = Math.max(r1, r2,r3);
+  return  Math.max(r1, r2,r3);
+}
+
+console.log(solve(nums))
+  </script>
+</body>
+
+
+</html>

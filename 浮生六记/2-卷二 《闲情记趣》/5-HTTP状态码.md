@@ -17,3 +17,8 @@
 7. 500("Internal Server Error")
 8. 405 method not allowed：  请求的方式（get、post、delete）方法与后台规定的方式不符合。
 9. 403 Forbidden 服务器收到请求，但是拒绝提供服务
+
+400 bad request，请求报文存在语法错误
+401 unauthorized，表示发送的请求需要有通过 HTTP 认证的认证信息
+403 forbidden，表示对请求资源的访问被服务器拒绝
+404 not found，表示在服务器上没有找到请求的资源
