@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://cdn.bootcss.com/vue/2.4.2/vue.js"></script>
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+  <div v-for = "(name,index) in subj.sbn" :key="index">
+    <input type="text" v-model="t">
+  </div>
+</div>
+  <script>
+
+    const vm = new Vue({
+      el: '#app',
+      data(){
+        return{
+          subj: {
+             sbn:[""]
+           },
+           t:1,
+           s:[1,2]
+        }
+      },
+    })
+  </script>
+</body>
+</html>
