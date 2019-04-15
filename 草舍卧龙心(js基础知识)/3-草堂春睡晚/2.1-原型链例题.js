@@ -1,6 +1,6 @@
-var tmp = {};
-var A = function() {};
-A.prototype = tmp;
+var tmp = {};//对象
+var A = function() {};//函数
+A.prototype = tmp;//函数的原型指向一个对象
 
 var a = new A();
 A.prototype = {};
