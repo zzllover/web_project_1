@@ -10,9 +10,10 @@
 </head>
 <body>
   <div id="app">
-  <div v-for = "(name,index) in subj.sbn" :key="index">
-    <input type="text" v-model="t">
+  <div v-for = "(name,index) in t.length" :key="index">
+    <input type="text" v-model="t[index]"> <button @click="delete1(index)">删除</button> <button @click="add">增加</button>
   </div>
+  <button @click="ok">确定</button>
 </div>
   <script>
 
@@ -20,13 +21,24 @@
       el: '#app',
       data(){
         return{
-          subj: {
-             sbn:[""]
-           },
-           t:1,
-           s:[1,2]
+           //subj: 1,
+           t:[1],
+           s:[1]
         }
       },
+      methods :{
+        add(){
+          //this.subj ++;
+          this.t.push("");
+        },
+        delete1(index){
+          this.t.splice(index,1)
+          //this.subj --;
+        },
+        ok(){
+          alert(this.t);
+        }
+      }
     })
   </script>
 </body>

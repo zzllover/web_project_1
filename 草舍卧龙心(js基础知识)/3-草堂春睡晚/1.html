@@ -1,0 +1,27 @@
+<!-- 2018-12-4 22:53:01 | 版权所有 火星科技 http://marsgis.cn  【联系我们QQ：516584683，微信：marsgis】 -->
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,minimum-scale=1,maximum-scale=1">
+  <meta name="apple-touch-fullscreen" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="x5-fullscreen" content="true">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <title>MarsGIS for Leaflet地图</title>
+  <link href="css/style.css" rel="stylesheet">
+  <script src="../lib/include-lib.js" libpath="../lib/"
+    include="jquery,font-awesome,bootstrap,layer,haoutil,leaflet-mars,esri-leaflet"></script>
+  <link href="../lib/leafletPlugins/iconPulse/L.Icon.Pulse.css" rel="stylesheet">
+  <script src="../lib/leafletPlugins/iconPulse/L.Icon.Pulse.js"></script>
+</head>
+
+<body>
+  <div id="map" class="map"></div>
+  <script>var map; function initMap() { var e = haoutil.system.getRequestByName("config", "config/gcj.json"); L.mars.createMap({ id: "map", url: e, success: function (e, r) { map = e, initWork() } }) } function initWork() { var e = L.marker([31.871396, 117.27388], { icon: L.icon.pulse({ iconSize: [20, 20], color: "#ff0000" }) }).addTo(map), r = (L.marker([31.832548, 117.179104], { icon: L.icon.pulse({ iconSize: [20, 20], color: "#0000ff" }) }).addTo(map), { mc: "数据门", jd: 117.232373, wd: 31.847493 }); e = L.marker([r.wd, r.jd]).addTo(map); map.setView([r.wd, r.jd]), workCenter.centerAt([e]) } $(document).ready(function () { initMap() }); var workCenter = { layerWork: null, centerAt: function (e) { var n = this; null == n.layerWork && (n.layerWork = L.layerGroup([]).addTo(map)), n.layerWork.clearLayers(), $.each(e, function (e, r) { var a = L.marker(r.getLatLng(), { icon: L.divIcon({ iconSize: [0, 0], className: "", html: '<div  class="centerat_animation" ></div>' }) }); n.layerWork.addLayer(a) }), 1 < e.length && map.fitBounds(n.layerWork.getBounds()), setTimeout(n.clearCenter, 5e3, this) }, clearCenter: function () { workCenter.layerWork.clearLayers() } }</script>
+</body>
+
+</html>
