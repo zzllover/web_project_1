@@ -13,7 +13,8 @@
 ![avatar](./vue生命周期.png)
 
 1.在beforeCreate和created钩子函数之间的生命周期
-在这个生命周期之间，进行初始化事件，进行数据的观测，可以看到在created的时候数据已经和data属性进行绑定（放在data中的属性当值发生改变的同时，视图也会改变）。
+在这个生命周期之间，进行初始化事件，进行数据的观测，
+可以看到在created的时候数据已经和data属性进行绑定（放在data中的属性当值发生改变的同时，视图也会改变）。
 注意看下：此时还是没有el选项：指明 Vue 实例的挂载目标【值为目标的ID,如：el:'#app'】
 
 2.created钩子函数和beforeMount间的生命周期
@@ -43,7 +44,8 @@ render函数选项 > template选项 > outer HTML.
 
 4.mounted
 在mounted之前h1中还是通过{{message}}进行占位的，
-因为此时还有挂在到页面上，还是JavaScript中的虚拟DOM形式存在的。在mounted之后可以看到h1中的内容发生了变化。
+因为此时还有挂在到页面上，还是JavaScript中的虚拟DOM形式存在的。
+在mounted之后可以看到h1中的内容发生了变化。
 
 5.beforeUpdate钩子函数和updated钩子函数间的生命周期
 当vue发现data中的数据发生了改变，会触发对应组件的**重新渲染**，先后调用beforeUpdate和updated钩子函数。
@@ -55,6 +57,6 @@ destroyed钩子函数在Vue 实例销毁后调用。调用后，Vue 实例指示
 
 小结：
 beforecreated：el 和 data 并未初始化
-created:完成了 data 数据的初始化，el没有
+created: 完成了 data 数据的初始化，el没有
 beforeMount：完成了 el 和 data 初始化/*现el还是 {{message}}，这里就是应用的 Virtual DOM（虚拟Dom）技术，先把坑占住了*/
 mounted ：完成挂载【数据视图挂载】

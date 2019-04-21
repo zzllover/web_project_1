@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>vue数据双向绑定</title>
+</head>
+
+<body>
+  <div id="test">
+    <input type="text" id="txt">
+    <p id="show"></p>
+  </div>
+  <script>
+    var obj = {};
+    Object.defineProperty(obj,'txt',{
+      get(){
+        return obj.txt
+      },
+      set(nval){
+        document.getElementById('txt').value = nval;
+        document.getElementById('show').innerHTML = nval;
+      }
+    });
+    document.addEventListener('keyup',(e)=>{
+      obj.txt = e.target.value;
+    })
+
+  </script>
+</body>
+
+</html>

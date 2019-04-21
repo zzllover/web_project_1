@@ -9,6 +9,8 @@
 <script type="text/javascript">
     var MutationObserver = window.MutationObserver || window.WebKitMutationObserver || window.MozMutationObserver;
     var element = document.querySelector('#test');
+    //监听Dom对象属性的变化
+    //1.定义一个MutationObserver对象
     var observer = new MutationObserver(function(mutations) {
       mutations.forEach(function(mutation) {
         if (mutation.type == "attributes") {
@@ -18,6 +20,7 @@
       });
     });
 
+    //2.观察绑定元素
     observer.observe(element, {
       attributes: true //configure it to listen to attribute changes
     });

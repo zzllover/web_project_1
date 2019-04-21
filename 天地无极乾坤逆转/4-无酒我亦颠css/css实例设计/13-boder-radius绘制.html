@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>绘制爱心</title>
+  <style>
+    .heart {
+      position: relative;
+      width: 140px;
+      height: 115px;
+    }
+
+    .heart::before {
+      content: "";
+      position: absolute;
+      left: 70px;
+      top: 0;
+      width: 70px;
+      height: 115px;
+      background: red;
+      border-radius: 50px 50px 0 0;
+      -webkit-transform: rotate(-45deg);
+      -moz-transform: rotate(-45deg);
+      -o-transform: rotate(-45deg);
+      transform: rotate(-45deg);
+      -webkit-transform-origin: left bottombottom;
+      -moz-transform-origin: left bottombottom;
+      -o-transform-origin: left bottombottom;
+      transform-origin: left bottombottom;
+    }
+
+    .heart::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 102px;
+      width: 70px;
+      height: 115px;
+      background: red;
+      border-radius: 50px 50px 0 0;
+      -webkit-transform: rotate(45deg);
+      -moz-transform: rotate(45deg);
+      -o-transform: rotate(45deg);
+      transform: rotate(45deg);
+      -webkit-transform-origin: rightright bottombottom;
+      -moz-transform-origin: rightright bottombottom;
+      -o-transform-origin: rightright bottombottom;
+      transform-origin: rightright bottombottom;
+    }
+
+    .heart {
+      -webkit-animation: jump 1s infinite ease-out;
+      -moz-animation: jump 1s infinite ease-out;
+      -o-animation: jump 1s infinite ease-out;
+      animation: jump 1s infinite ease-out;
+    }
+
+    @-webkit-keyframes jump {
+
+      0%,
+      60%,
+      75%,
+      90%,
+      100% {
+        -webkit-transform: scale(1);
+      }
+
+      15% {
+        -webkit-transform: scale(0.6);
+      }
+
+      30% {
+        -webkit-transform: scale(1);
+      }
+
+      45% {
+        -webkit-transform: scale(0.7);
+      }
+    }
+
+    @-moz-keyframes jump {
+
+      0%,
+      60%,
+      75%,
+      90%,
+      100% {
+        -moz-transform: scale(1);
+      }
+
+      15% {
+        -moz-transform: scale(0.6);
+      }
+
+      30% {
+        -moz-transform: scale(1);
+      }
+
+      45% {
+        -moz-transform: scale(0.7);
+      }
+    }
+
+    @-o-keyframes jump {
+
+      0%,
+      60%,
+      75%,
+      90%,
+      100% {
+        -o-transform: scale(1);
+      }
+
+      15% {
+        -o-transform: scale(0.6);
+      }
+
+      30% {
+        -o-transform: scale(1);
+      }
+
+      45% {
+        -o-transform: scale(0.7);
+      }
+    }
+
+    @keyframes jump {
+
+      0%,
+      60%,
+      75%,
+      90%,
+      100% {
+        transform: scale(1);
+      }
+
+      15% {
+        transform: scale(0.6);
+      }
+
+      30% {
+        transform: scale(1);
+      }
+
+      45% {
+        transform: scale(0.7);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <body>
+    <div class="heart"></div>
+  </body>
+
+</body>
+
+</html>

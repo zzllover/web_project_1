@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .taichi {
+      position: relative;
+      width: 48px;
+      /* 50 - 2 */
+      height: 96px;
+      /* 100 - 2 - 2 */
+      background: #fff;
+      border: 2px solid #000;
+      border-width: 2px 50px 2px 2px;
+      border-radius: 50%;
+    }
+
+    .white-circle {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      background: #fff;
+      border-radius: 50%;
+      width: 48px;
+      height: 48px;
+    }
+
+    .black-circle {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      background: #000;
+      border-radius: 50%;
+      width: 48px;
+      height: 48px;
+    }
+
+    .white-circle::after {
+      content: "";
+      position: absolute;
+      top: 17px;
+      /* (50-16)/2 */
+      left: 17px;
+      /* (50-16)/2 */
+      background: #000;
+      border-radius: 50%;
+      width: 16px;
+      height: 16px;
+    }
+
+    .black-circle::after {
+      content: "";
+      position: absolute;
+      top: 17px;
+      /* (50-16)/2 */
+      left: 17px;
+      /* (50-16)/2 */
+      background: #fff;
+      border-radius: 50%;
+      width: 16px;
+      height: 16px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <body>
+    <div class="taichi">
+      <div class="white-circle"></div>
+      <div class="black-circle"></div>
+    </div>
+  </body>
+</body>
+
+</html>
