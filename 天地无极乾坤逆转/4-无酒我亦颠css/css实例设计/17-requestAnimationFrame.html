@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>requestAnimationFrame</title>
+</head>
+<body>
+
+  <script>
+
+    //使用定时器，简写节流
+
+    var throttle = function (fn,delayTime){
+      var flag;
+      return function(){
+        var context = this,args = arguments
+        if(!flag){
+          flag = setTimeout(()=>{
+            fn.apply(context,args);
+            flag = false;
+          },delayTime);
+        }
+      }
+    }
+
+
+    var throttle1 = function(fn,delayTime){
+      var _start = Date.now();
+      return function(){
+        var context = this,
+            args = arguments,
+            _now = Date.now(),
+            remainTime = delay - (_now - _start);
+        if(remainTime<=0){
+          fn.apply(context,args);
+        }else{
+          setTimeout(function(){
+            fn.apply(context,args);
+          },remainTime);
+        }
+      }
+    }
+
+
+    //使用 requestAnimationFrame
+    var throttle2 = function(fn,delayTime){
+      var flag;
+      return function(){
+        if(!flag){
+          requestAnimationFrame(function(){
+            fn();
+            flag = false;
+          });
+          flag = true;
+        }
+      }
+    }
+
+  </script>
+  
+</body>
+</html>

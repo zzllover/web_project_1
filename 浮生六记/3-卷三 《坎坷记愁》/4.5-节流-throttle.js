@@ -1,6 +1,7 @@
 
 //节流
 
+//1.
 var throttle = (fn, delayTime) => {
   var _start = Date.now();
   return function () {
@@ -11,3 +12,7 @@ var throttle = (fn, delayTime) => {
     }
   }
 }
+
+//2.
+
+//3.

@@ -8,7 +8,8 @@
 5XX 服务端错误
 
 1. 301 redirect: 301 代表永久性转移(Permanently Moved)
-2. 302 redirect: 302 代表暂时性转移(Temporarily Moved ) 302容易出现网址URL 劫持。http1.1变成Found，响应代码307变成了Temporarily Moved
+2. 302 redirect: 302 代表暂时性转移(Temporarily Moved ) 302容易出现网址URL 劫持。
+http1.1变成Found，响应代码307变成了Temporarily Moved
 3. 304 not modified。服务器端允许请求访问资源，但因发生请求未满足条件的情况后，直接返回304Modified（服务器端资源未改变，可直接使用客户端未过期的缓存）。304状态码返回时，不包含任何响应的主体部分。304虽然被划分在3xx类别中，但是和重定向没有关系。
 4. 400 bad request：表示请求的报文中存在语法错误，比如url含有非法字符
 5. 409("Conflict")你请求的操作会导致服务器的资源处于一种不可能或不一致的状态。
