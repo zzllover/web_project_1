@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>鼠标</title>
+  <style>
+    #div{
+      width: 150px;
+      height: 150px;
+      background-color: red;
+     /* position:relative; */
+     /* position:absolute; */
+    }
+  </style>
+</head>
+<body>
+  <div id="div"></div>
+  <!--
+    static	默认值。没有定位，元素出现在正常的流中
+    （忽略 top, bottom, left, right 或者 z-index 声明）。
+  -->
+  <script>
+    document.onmousemove = function(event){
+      e = event || window.event;
+      let obj = document.getElementById('div');
+      obj.style.left = e.clientX +'px';
+      obj.style.top = e.clientY +'px';
+    }
+  </script>
+</body>
+</html>
