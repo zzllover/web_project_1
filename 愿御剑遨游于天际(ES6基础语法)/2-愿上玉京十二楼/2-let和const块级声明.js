@@ -77,3 +77,5 @@ funcs.forEach(function (func) {
 
 //如果希望在浏览器全局环境下定义变量，仍可使用 var
 //如果不想创建全局属性，则使用let const较为妥当
+
+
