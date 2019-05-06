@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /* function onSuccess(position) {
+       console.log(position.coords.longitude, position.coords.latitude);
+     }
+     function onError(error) {
+       console.log("失败");
+     }
+     navigator.geolocation.getCurrentPosition(onSuccess, onError, {
+       enableHighAccuracy: true, //boolean 是否要求高精度的地理信息，默认为false
+       maximumAge: 1000 //应用程序的缓存时间
+     }); */
+    navigator.geolocation.getCurrentPosition(function (position) {
+      console.log('success', position);
+      var success = {
+        coords: {
+          accuracy: 70,// 位置精确度
+          altitude: null, // 海拔
+          altitudeAccuracy: null,// 海拔精确度
+          heading: null,// 朝向
+          latitude: 23.1017714, // 纬度
+          longitude: 113.25838209999999,// 经度
+          speed: null,// 速度
+        },
+        timestamp: 1544340493718
+      }
+
+    }, function (error) {
+      console.log('error', error);
+      var error = {
+        code: error.code,
+        message: error.message,
+        jsapiLoc: true
+      };
+    }, {
+        enableHighAccuracy: true,
+        timeout: 5000,
+        maximumAge: 600000
+      });
+  </script>
+</body>
+
+</html>
