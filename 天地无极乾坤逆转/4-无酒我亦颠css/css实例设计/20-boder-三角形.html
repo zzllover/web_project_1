@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+      #test1 {
+        height:20px;
+        width:20px;
+        border-color:#FF9600 #3366ff #12ad2a #f0eb7a;
+        border-style:solid;
+        border-width:20px;
+    }
+
+    #test2{
+      height: 0px;
+      width: 0px;
+      overflow: hidden;
+      font-size: 0;
+      line-height: 0;
+      border-width: 30px 15px 5px 15px;
+      border-style: solid;
+      border-color: red transparent transparent transparent;
+
+      /*
+      用来指定全透明色彩
+      transparent是全透明黑色(black)的速记法，即一个类似rgba(0,0,0,0)这样的值。
+      在CSS1中，transparent被用来作为background-color的一个参数值，用于表示背景透明。
+      在CSS2中，border-color也开始接受transparent作为参数值，《Open eBook(tm) Publication Structure 1.0.1》[OEB101]延伸到color也接受transparent作为参数值。
+      在CSS3中，transparent被延伸到任何一个有color值的属性上。
+      */
+    }
+  </style>
+</head>
+<body>
+  <div id="test1"></div>
+  <div id="test2"></div>
+  <script>
+    //console.log(getComputedStyle(document.querySelector('#test1')).height)
+  </script>
+</body>
+</html>

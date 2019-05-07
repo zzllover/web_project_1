@@ -1,11 +1,11 @@
 
 
-function deepCopy(p,c) {
+function deepCopy(p, c) {
   c = c || {};//c为空就初始化
   for (let key in p) {
     if (typeof p[key] == 'object') {
       c[key] = (p[key].constructor === Array) ? [] : {};
-      deepCopy(p[key],c[key])
+      deepCopy(p[key], c[key])
     } else {
       c[key] = p[key];
     }
@@ -17,7 +17,7 @@ var obj = {
   name: 'pxm',
   xg: {
     yund: 'lanqiu',
-    aaa:'ss'
+    aaa: 'ss'
   },
   ss: [1, 2],
   func: () => {
